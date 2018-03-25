@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import { withRouter } from 'react-router-dom'
-
+import axios from 'axios'
 
 import { InputItem, WhiteSpace } from 'antd-mobile'
 import './index.css';
@@ -13,6 +13,12 @@ import './index.css';
 export default class Login extends Component{
 	handleclick(){
 		this.props.history.push('/')
+	}
+	componentDidMount(){
+		axios.get('/data')
+	  .then(function(response){
+	    console.log(response);
+	  })
 	}
 	render(){
 		return(
